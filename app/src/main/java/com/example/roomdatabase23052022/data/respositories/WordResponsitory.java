@@ -8,6 +8,7 @@ import com.example.roomdatabase23052022.data.model.entities.WorkEntity;
 
 import java.util.List;
 
+import io.reactivex.rxjava3.core.Maybe;
 import io.reactivex.rxjava3.core.Observable;
 
 public class WordResponsitory {
@@ -19,5 +20,9 @@ public class WordResponsitory {
 
     public Observable<List<WorkEntity>> getListWorks(){
         return wordDao.getWordList();
+    }
+
+    public Maybe<Long> insertWork(WorkEntity workEntity){
+        return wordDao.insertWork(workEntity);
     }
 }
