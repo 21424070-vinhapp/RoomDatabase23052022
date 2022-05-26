@@ -24,35 +24,35 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mMainViewModel = new ViewModelProvider(this, new ViewModelProvider.Factory() {
-            @NonNull
-            @Override
-            public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-                return (T) new MainViewModel(MainActivity.this);
-            }
-        }).get(MainViewModel.class);
-
-        mMainViewModel.getList().observe(this, new Observer<List<WorkEntity>>() {
-            @Override
-            public void onChanged(List<WorkEntity> workEntities) {
-                Log.d("bbb", "Total "+workEntities.size()+"");
-            }
-        });
-
-        mMainViewModel.getIdInsert().observe(this, new Observer<Long>() {
-            @Override
-            public void onChanged(Long aLong) {
-                Log.d("bbb", "Row "+aLong+"");
-            }
-        });
-
-        mMainViewModel.queryListWork();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mMainViewModel.insertWork(new WorkEntity("alo alo","alo alo 2"));
-            }
-        },2000);
+//        mMainViewModel = new ViewModelProvider(this, new ViewModelProvider.Factory() {
+//            @NonNull
+//            @Override
+//            public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
+//                return (T) new MainViewModel(MainActivity.this);
+//            }
+//        }).get(MainViewModel.class);
+//
+//        mMainViewModel.getList().observe(this, new Observer<List<WorkEntity>>() {
+//            @Override
+//            public void onChanged(List<WorkEntity> workEntities) {
+//                Log.d("bbb", "Total "+workEntities.size()+"");
+//            }
+//        });
+//
+//        mMainViewModel.getIdInsert().observe(this, new Observer<Long>() {
+//            @Override
+//            public void onChanged(Long aLong) {
+//                Log.d("bbb", "Row "+aLong+"");
+//            }
+//        });
+//
+//        mMainViewModel.queryListWork();
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                mMainViewModel.insertWork(new WorkEntity("alo alo","alo alo 2"));
+//            }
+//        },2000);
 
     }
 }
